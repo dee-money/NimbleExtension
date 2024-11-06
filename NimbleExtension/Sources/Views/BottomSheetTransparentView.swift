@@ -25,6 +25,7 @@
 
 import SwiftUI
 
+@available(iOS, introduced: 15.0.0)
 public struct PresentCoverTransparentView: UIViewRepresentable {
 
     private let maxUIHostingViewsToTraverse: Int
@@ -43,6 +44,7 @@ public struct PresentCoverTransparentView: UIViewRepresentable {
     ) {}
 }
 
+@available(iOS, introduced: 15.0.0)
 public class PresentCoverTransparentBackgroundView: UIView {
 
     private let uiHostingViewName = "_UIHostingView"
@@ -69,11 +71,12 @@ public class PresentCoverTransparentBackgroundView: UIView {
             if String(describing: superview).contains(uiHostingViewName) {
                 traversedCount += 1
             }
-            currentSuperview = superview?.superview
+            currentSuperview = superview.superview
         }
     }
 }
 
+@available(iOS, introduced: 15.0.0)
 extension View {
 
     public func presentCoverTransparentBackground(maxUIHostingViewsToTraverse: Int = 2) -> some View {
